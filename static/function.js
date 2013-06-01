@@ -8,7 +8,7 @@ function doProcess(a) {
     if ($('#contentsbox').height() > 200) {
         $('#contentsbox').animate({height: '200px'});
     }
-    $.post("http://localhost:5000/process", $('#form_' + a).serialize(), function(data) {
+    $.post("http://58.229.105.83:8000/process", $('#form_' + a).serialize(), function(data) {
         $('#result_' + a).html('');
         inspected = "<div><div class='title'>* Categorize</div>" + "해당 글은 <span class='blue bold'>Class " + data.class + " : " + getClassName(data.class) + "</span>로 판단됩니다.</div>";
         $('#result_' + a).append(inspected);
