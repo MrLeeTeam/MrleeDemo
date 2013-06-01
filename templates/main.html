@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-responsive.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='function.js') }}"></script>
+    <title>MrLee Team</title>
+</head>
+<body>
+    <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Team MrLee</a>
+                <ul class="nav pull-right">
+                    <li><a href="http://buzzni.com/">남상협</a></li>
+                    <li><a href="http://warning.or.kr/">이병윤</a></li>
+                    <li><a href="http://warning.or.kr/">이은총</a></li>
+                    <li><a href="http://lee.jaeyou.ng/">이재영</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="page-header">
+                    <h1>Textbase <small>Inspect paragraph</small></h1>
+                </div>
+                 <form action="/process" method="post" enctype="multipart/form-data" id="form_text">
+                     <textarea name="contents" id="contentsbox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+                     <input type="hidden" name="action" value="text">
+                 </form>
+                <div>
+                    <button onClick="doProcess('text');" class="btn input-block-level">Process</button>
+                </div>
+                <div id="result_text" class="resultbox">
+
+                </div>
+            </div>
+            <div class="span6">
+                <div class="page-header">
+                    <h1>Imagebase <small>Inspect Feature</small></h1>
+                </div>
+                <form action="/process" method="post" enctype="multipart/form-data" id="form_image">
+                    <input type="file" name="image">
+                    <input type="hidden" name="action" value="image">
+                </form>
+                <div>
+                    <button onClick="doProcess('image');" class="btn input-block-level">Process</button>
+                </div>
+                <div id="result_image" class="resultbox">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
