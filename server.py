@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, jsonify
 from module import classify, extractor
 
+
 MrLee = Flask(__name__)
 
 
