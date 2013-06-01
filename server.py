@@ -1,10 +1,12 @@
 # -*- coding:utf-8 -*-
 
 from flask import Flask, render_template, request, jsonify
+from werkzeug.contrib.fixers import ProxyFix
 from module import classify, extractor
 
 
 MrLee = Flask(__name__)
+MrLee.wsgi_app = ProxyFix(MrLee.wsgi_app)
 
 
 @MrLee.route("/")
