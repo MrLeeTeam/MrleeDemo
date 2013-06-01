@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from math import log
-import psycopg2cffi as DB
+import psycopg2 as DB
 import config
 import operator
 import data
 import inspector
 import HTMLParser
-import chardet
 
 
 def extract(Document):
