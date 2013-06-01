@@ -1,0 +1,11 @@
+Flask==0.9
+Jinja2==2.7
+MarkupSafe==0.18
+MySQL-python==1.2.4
+Werkzeug==0.8.3
+cffi==0.5
+chardet==2.1.1
+distribute==0.6.34
+psycopg2cffi==0.1.5
+pycparser==2.09.1
+wsgiref==0.1.2
