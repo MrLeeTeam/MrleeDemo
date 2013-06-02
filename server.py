@@ -42,8 +42,7 @@ def process():
             return jsonify(returnee)
 
         elif request.form['action'] == "image":
-
-            image = request.files.get('name')
+            image = request.files.get('image')
             filename = image.filename
             return "kk"
             # if image and allowed_file(image.filename):
