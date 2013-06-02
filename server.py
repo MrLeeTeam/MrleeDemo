@@ -43,7 +43,8 @@ def process():
 
         elif request.form['action'] == "image":
 
-            image = request.files['image']
+            image = request.files.get('name')
+            filename = image.filename
             return "kk"
             # if image and allowed_file(image.filename):
             #     image.save(os.path.join(MrLee.config['UPLOAD_FOLDER'], image.filename))
