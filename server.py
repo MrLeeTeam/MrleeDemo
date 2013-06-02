@@ -42,11 +42,12 @@ def process():
             return jsonify(returnee)
 
         elif request.form['action'] == "image":
-            image = request.files['image']
-            if image and allowed_file(image.filename):
-                image.save(os.path.join(MrLee.config['UPLOAD_FOLDER'], image.filename))
-
-                return url_for("db", filename=image.filename)
+            return "kk"
+            # image = request.files['image']
+            # if image and allowed_file(image.filename):
+            #     image.save(os.path.join(MrLee.config['UPLOAD_FOLDER'], image.filename))
+            #
+            #     return url_for("db", filename=image.filename)
 
         else:
             error = "Invalid action inserted."
