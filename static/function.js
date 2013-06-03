@@ -22,7 +22,6 @@ function doProcess(a) {
         }, "json");
     } else if (a == "image") {
         $('#result_' + a).html('<div class="title">Processing...</div>');
-        alert($('#form_' + a).serialize());
         $('#form_image').ajaxSubmit({
             dataType: 'json',
             url: '/process',
