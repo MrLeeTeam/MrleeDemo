@@ -1,13 +1,11 @@
 MrLee Demo
 =========
 
-1. 서버 켜는 방법
 서버는 아래와 같이 켤 수 있습니다.
 
     $ cd /home/mrlee/mrleedemo/
     $ gunicorn server:MrLee -b leeee.kr:80
 
-2. 서버 끄는 방법
 종료할 때는 이렇게 하세요.
 
     $ ps -ax | grep gunicorn
