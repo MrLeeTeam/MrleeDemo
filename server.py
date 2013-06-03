@@ -67,7 +67,7 @@ def uploaded(filename):
 
 ## QNA Test
 @MrLee.route("/qna/<question>", methods=['GET'])
-def qna(question):
+def getAnswer(question):
     return qna.quest(question)
 
 
