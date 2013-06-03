@@ -22,9 +22,16 @@ function doProcess(a) {
         }, "json");
     } else if (a == "image") {
         $('#result_' + a).html('<div class="title">Processing...</div>');
-        $.post("/process", $('#form_' + a).serialize(), function(data) {
-            alert('kk');
-        }, "json");
+        alert($('#form_' + a).serialize());
+        $('#form_image').ajaxSubmit({
+            dataType: 'json',
+            url: '/process',
+            success: function(data) {
+                $('#result_' + a).html('');
+                html = "<img src='" + data.uploaded + "'>";
+                $('#result_' + a).append(html);
+            }
+        });
     }
 }
 
