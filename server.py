@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request, jsonify, send_file
 from werkzeug.contrib.fixers import ProxyFix
-from module import classify, extractor, imageprocess
+from module import classify, extractor, imageprocess, qna
 import os
 
 
@@ -63,6 +63,12 @@ def process():
 @MrLee.route("/db/<filename>", methods=['GET'])
 def uploaded(filename):
     return send_file(os.path.join(MrLee.config['UPLOAD_FOLDER'], filename))
+
+
+## QNA Test
+@MrLee.route("/qna/<question>")
+def qna(question):
+    return qna.quest(question)
 
 
 if __name__ == "__main__":
