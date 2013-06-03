@@ -4,6 +4,7 @@ function textAreaAdjust(o) {
 }
 
 function doProcess(a) {
+    debug = "";
     if (a == "text") {
         $('#result_' + a).html('<div class="title">Processing...</div>');
         if ($('#contentsbox').height() > 200) {
@@ -26,6 +27,7 @@ function doProcess(a) {
             dataType: 'json',
             url: '/process',
             success: function(data) {
+                debug = data;
                 $('#result_' + a).html('');
                 html = "<img src='" + data.uploaded + "'>";
                 $('#result_' + a).append(html);

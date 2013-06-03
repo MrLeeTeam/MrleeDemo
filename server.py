@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request, jsonify, send_file
 from werkzeug.contrib.fixers import ProxyFix
-from module import classify, extractor
+from module import classify, extractor, imageprocess
 import os
 
 
@@ -47,7 +47,8 @@ def process():
                 image.save(fullpath)
 
                 returnee = {
-                    "uploaded": fullpath
+                    "uploaded": fullpath,
+                    "inspected": imageprocess.do(os.path.abspath(fullpath))
                 }
 
             return jsonify(returnee)
