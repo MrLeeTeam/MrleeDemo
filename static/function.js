@@ -39,7 +39,7 @@ function doProcess(a) {
 function getClassName(a) {
     switch(a) {
         case '1':
-            return "사회";
+            return "정치";
             break;
 
         case '2':
