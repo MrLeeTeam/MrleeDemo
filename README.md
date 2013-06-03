@@ -10,3 +10,11 @@ MrLee Demo
 
     $ ps -ax | grep gunicorn
     $ kill -9 pid(smallest)
+
+    --
+    (example)
+    $ ps -ax | grep gunicorn
+    16389 pts/1    S+     0:00 /usr/local/bin/python2.7 /usr/local/bin/gunicorn server:MrLee -b leeee.kr:80
+    16394 pts/1    S+     0:00 /usr/local/bin/python2.7 /usr/local/bin/gunicorn server:MrLee -b leeee.kr:80
+    16520 pts/6    S+     0:00 grep gunicorn
+    $ kill -9 16389
