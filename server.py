@@ -41,7 +41,7 @@ def process():
 
         elif request.form['action'] == "qna":
             returnee = {
-                "annswer": qna.quest(request.form['contents'])
+                "answer": qna.quest(request.form['contents'])
             }
             return jsonify(returnee)
 
