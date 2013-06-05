@@ -28,9 +28,20 @@ function doProcess(a) {
             url: '/process',
             success: function(data) {
                 debug = data;
+                debug2 = data.inspected;
                 $('#result_' + a).html('');
-                html = "<img src='" + data.uploaded + "'>";
+                html = "<div><div class='title'>* Original</div><img src='" + data.uploaded + "' class='img-polaroid'></div>";
                 $('#result_' + a).append(html);
+
+                inspected_prefix = "<div><div class='title'>* Found</div>";
+                inspected_suffix = "</div>";
+                member = "";
+                $(data.inspected).each(function(idx) {
+                    member += "<div class='thumbnail' style='margin-bottom:5px;'><img src='" + this +"'><div>Rank: " + idx + "</div></div>";
+                });
+
+                $('#result_' + a).append(inspected_prefix + member + inspected_suffix);
+
             }
         });
     } else if (a == "qna") {
