@@ -39,6 +39,12 @@ def process():
             }
             return jsonify(returnee)
 
+        elif request.form['action'] == "qna":
+            returnee = {
+                "annswer": qna.quest(request.form['contents'])
+            }
+            return jsonify(returnee)
+
         elif request.form['action'] == "image":
             image = request.files['image']
             returnee = {}
@@ -50,7 +56,6 @@ def process():
                     "uploaded": fullpath,
                     "inspected": imageprocess.do(os.path.abspath(fullpath))
                 }
-
             return jsonify(returnee)
 
         else:
@@ -63,12 +68,6 @@ def process():
 @MrLee.route("/db/<filename>", methods=['GET'])
 def uploaded(filename):
     return send_file(os.path.join(MrLee.config['UPLOAD_FOLDER'], filename))
-
-
-## QNA Test
-@MrLee.route("/qna/<question>", methods=['GET'])
-def getAnswer(question):
-    return qna.quest(question)
 
 
 if __name__ == "__main__":

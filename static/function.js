@@ -33,6 +33,17 @@ function doProcess(a) {
                 $('#result_' + a).append(html);
             }
         });
+    } else if (a == "qna") {
+        $('#result_' + a).html('<div class="title">Processing...</div>');
+        if ($('#contentsbox').height() > 200) {
+            $('#contentsbox').animate({height: '200px'});
+        }
+        $.post("/process", $('#form_' + a).serialize(), function(data) {
+            $('#result_' + a).html('');
+            item = "<div><div class='title'>* Answer</div>" + data.answer + "</div>";
+            $('#result_' + a).append(item);
+        }, "json");
+
     }
 }
 

@@ -28,9 +28,9 @@
 
     <div class="container">
         <div class="row-fluid">
-            <div class="span6">
+            <div class="span4">
                 <div class="page-header">
-                    <h1>Textbase <small>Inspect paragraph</small></h1>
+                    <h1>Text Inspect</h1>
                 </div>
                  <form action="/process" method="post" enctype="multipart/form-data" id="form_text">
                      <textarea name="contents" id="contentsbox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
@@ -43,9 +43,24 @@
 
                 </div>
             </div>
-            <div class="span6">
+            <div class="span4">
                 <div class="page-header">
-                    <h1>Imagebase <small>Inspect Feature</small></h1>
+                    <h1>QNA Answering</h1>
+                </div>
+                <form action="/process" method="post" id="form_qna">
+                    <textarea name="contents" id="qnabox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+                    <input type="hidden" name="action" value="qna"/>
+                </form>
+                <div>
+                    <button onClick="doProcess('qna');" class="btn input-block-level">Process</button>
+                </div>
+                <div id="result_qna" class="resultbox">
+
+                </div>
+            </div>
+            <div class="span4">
+                <div class="page-header">
+                    <h1>Image Processing</h1>
                 </div>
                 <form action="/process" method="post" enctype="multipart/form-data" id="form_image">
                     <input type="file" name="image">
