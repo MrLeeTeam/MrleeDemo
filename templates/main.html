@@ -53,7 +53,7 @@
             <div class="span10" class="contents">
                 <section id="s_text" class="itembox">
                     <div class="page-header">
-                        <h1>Text Inspect</h1>
+                        <h1>1.Text Inspect</h1>
                     </div>
                      <form action="/process" method="post" enctype="multipart/form-data" id="form_text">
                          <textarea name="contents" id="contentsbox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
@@ -68,7 +68,7 @@
                 </section>
                 <section id="s_qna" class="itembox">
                     <div class="page-header">
-                        <h1>Text QNA</h1>
+                        <h1>2.Text QNA</h1>
                     </div>
                     <form action="/process" method="post" id="form_qna">
                         <textarea name="contents" id="qnabox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
@@ -83,18 +83,18 @@
                 </section>
                 <section id="s_image" class="itembox">
                     <div class="page-header">
-                    <h1>Image Processing</h1>
-                </div>
-                <form action="/process" method="post" enctype="multipart/form-data" id="form_image">
-                    <input type="file" name="image">
-                    <input type="hidden" name="action" value="image">
-                </form>
-                <div class="form-actions">
-                        <button onClick="doProcess('image');" type="submit" class="btn btn-primary">Process</button>
+                        <h1>3.Image Processing</h1>
                     </div>
-                <div id="result_image" class="resultbox">
+                    <form action="/process" method="post" enctype="multipart/form-data" id="form_image">
+                        <input type="file" name="image">
+                        <input type="hidden" name="action" value="image">
+                    </form>
+                    <div class="form-actions">
+                            <button onClick="doProcess('image');" type="submit" class="btn btn-primary">Process</button>
+                        </div>
+                    <div id="result_image" class="resultbox">
 
-                </div>
+                    </div>
                 </section>
             </div>
         </div>
