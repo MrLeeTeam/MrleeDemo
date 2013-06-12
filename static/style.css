@@ -13,10 +13,6 @@
     margin-bottom:5px;
 }
 
-.contents section {
-    overflow:hidden;
-}
-
-.submitbox {
-    overflow:hidden;
+#wrap {
+    margin-top:40px;
 }
