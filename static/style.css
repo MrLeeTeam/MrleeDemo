@@ -1,18 +1,5 @@
-.bold {
-    font-weight: bold;
-}
-
-.blue {
-    color: blue;
-}
-
-.title {
-    font-size:11pt;
-    font-weight:bold;
-    margin-top:20px;
-    margin-bottom:5px;
-}
-
-#wrap {
-    margin-top:40px;
-}
+.bold {font-weight: bold;}
+.blue {color: blue;}
+.title {font-size:11pt;font-weight:bold;margin-top:20px;margin-bottom:5px;}
+#wrap {}
+section.itembox {padding-top:40px;}
