@@ -12,3 +12,11 @@
     margin-top:20px;
     margin-bottom:5px;
 }
+
+.contents section {
+    overflow:hidden;
+}
+
+.submitbox {
+    overflow:hidden;
+}

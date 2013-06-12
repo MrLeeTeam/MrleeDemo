@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
     <script src="{{ url_for('static', filename='jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='jquery.form.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
     <script src="{{ url_for('static', filename='function.js') }}"></script>
     <title>MrLee Team</title>
 </head>
@@ -28,50 +29,73 @@
 
     <div class="container">
         <div class="row-fluid">
-            <div class="span4">
-                <div class="page-header">
-                    <h1>Text Inspect</h1>
-                </div>
-                 <form action="/process" method="post" enctype="multipart/form-data" id="form_text">
-                     <textarea name="contents" id="contentsbox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
-                     <input type="hidden" name="action" value="text">
-                 </form>
-                <div>
-                    <button onClick="doProcess('text');" class="btn input-block-level">Process</button>
-                </div>
-                <div id="result_text" class="resultbox">
-
-                </div>
-            </div>
-            <div class="span4">
-                <div class="page-header">
-                    <h1>Text QNA</h1>
-                </div>
-                <form action="/process" method="post" id="form_qna">
-                    <textarea name="contents" id="qnabox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
-                    <input type="hidden" name="action" value="qna"/>
-                </form>
-                <div>
-                    <button onClick="doProcess('qna');" class="btn input-block-level">Process</button>
-                </div>
-                <div id="result_qna" class="resultbox">
-
+            <div class="span2">
+                <div class="row-fluid">
+                    <ul id="navbar2" class="nav nav-tabs nav-stacked" style="position:fixed; margin-top:25px;">
+                        <li>
+                            <a href="#s_text">
+                                1. Text Inspect
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#s_qna">
+                                2. Text QNA
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#s_image">
+                                3. Image Processing
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="span4">
-                <div class="page-header">
+            <div class="span10" class="contents">
+                <section id="s_text">
+                    <div class="page-header">
+                        <h1>Text Inspect</h1>
+                    </div>
+                     <form action="/process" method="post" enctype="multipart/form-data" id="form_text">
+                         <textarea name="contents" id="contentsbox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+                         <input type="hidden" name="action" value="text">
+                     </form>
+                    <div class="form-actions">
+                        <button onClick="doProcess('text');" type="submit" class="btn btn-primary">Process</button>
+                    </div>
+                    <div id="result_text" class="resultbox">
+
+                    </div>
+                </section>
+                <section id="s_qna">
+                    <div class="page-header">
+                        <h1>Text QNA</h1>
+                    </div>
+                    <form action="/process" method="post" id="form_qna">
+                        <textarea name="contents" id="qnabox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+                        <input type="hidden" name="action" value="qna"/>
+                    </form>
+                    <div class="form-actions">
+                        <button onClick="doProcess('qna');" type="submit" class="btn btn-primary">Process</button>
+                    </div>
+                    <div id="result_qna" class="resultbox">
+
+                    </div>
+                </section>
+                <section id="s_image">
+                    <div class="page-header">
                     <h1>Image Processing</h1>
                 </div>
                 <form action="/process" method="post" enctype="multipart/form-data" id="form_image">
                     <input type="file" name="image">
                     <input type="hidden" name="action" value="image">
                 </form>
-                <div>
-                    <button onClick="doProcess('image');" class="btn input-block-level">Process</button>
-                </div>
+                <div class="form-actions">
+                        <button onClick="doProcess('image');" type="submit" class="btn btn-primary">Process</button>
+                    </div>
                 <div id="result_image" class="resultbox">
 
                 </div>
+                </section>
             </div>
         </div>
     </div>
