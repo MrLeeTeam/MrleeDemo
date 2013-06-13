@@ -3,6 +3,10 @@ function textAreaAdjust(o) {
     o.style.height = (25+o.scrollHeight)+"px";
 }
 
+function reset(a) {
+
+}
+
 function doProcess(a) {
     debug = "";
     debug2 = "";

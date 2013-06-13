@@ -61,6 +61,7 @@
                      </form>
                     <div class="form-actions">
                         <button onClick="doProcess('text');" type="submit" class="btn btn-primary">Process</button>
+                        <button class="btn" onClick="$('#contentsbox').val('');">Reset</button>
                     </div>
                     <div id="result_text" class="resultbox">
 
@@ -76,6 +77,7 @@
                     </form>
                     <div class="form-actions">
                         <button onClick="doProcess('qna');" type="submit" class="btn btn-primary">Process</button>
+                        <button class="btn" onClick="$('#qnabox').val('');">Reset</button>
                     </div>
                     <div id="result_qna" class="resultbox">
 
@@ -86,12 +88,13 @@
                         <h1>3. Image Processing</h1>
                     </div>
                     <form action="/process" method="post" enctype="multipart/form-data" id="form_image">
-                        <input type="file" name="image">
+                        <input type="file" name="image" id="input_img">
                         <input type="hidden" name="action" value="image">
                     </form>
                     <div class="form-actions">
-                            <button onClick="doProcess('image');" type="submit" class="btn btn-primary">Process</button>
-                        </div>
+                        <button onClick="doProcess('image');" type="submit" class="btn btn-primary">Process</button>
+                        <button class="btn" onClick="$('#input_img').val('');">Reset</button>
+                    </div>
                     <div id="result_image" class="resultbox">
 
                     </div>
