@@ -5,25 +5,27 @@ function textAreaAdjust(o) {
 
 function doProcess(a) {
     debug = "";
+    debug2 = "";
     if (a == "text") {
         $('#result_' + a).html('<div class="title">Processing...</div>');
         if ($('#contentsbox').height() > 200) {
             $('#contentsbox').animate({height: '200px'});
         }
         $.post("/process", $('#form_' + a).serialize(), function(data) {
+            debug2 = data;
             $('#result_' + a).html('');
             inspected = "<div><div class='title'>* Categorize</div>" + "해당 글은 <span class='blue bold'>Class " + data.class + " : " + getClassName(data.class) + "</span>로 판단됩니다.</div>";
             $('#result_' + a).append(inspected);
 
             member = "<div class='title'>* Keyword Extraction</div>";
             $.each(data.keyword, function(idx, item) {
-                member += "<tr><td>" + idx + "</td><td>" + item[0] + "</td><td>" + item[1] + "</td><td>" + item[2] + "</td></tr>"
+                member += "<tr><td>" + idx + "</td><td>" + item[0] + "</td><td>" + item[1] + "</td><td>" + item[2] + "</td></tr>";
             });
             $('#result_' + a).append("<table class='table table-condensed'><tr><th>Rank</th><th>Keyword</hd><th>Morpheme</th><th>Point</th></tr>"+ member +"</table>");
 
             pmi = "<div class='title'>* Keyword PMI Rank</div>";
             $.each(data.pmi, function(idx, item) {
-                pmi += "<tr><td>" + idx + "</td><td>" + item[0] + "</td><td>" + item[1] + "</td><td>" + item[2] + "</td></tr>"
+                pmi += "<tr><td>" + idx + "</td><td>" + item[0] + "</td><td>" + item[1] + "</td><td>" + item[2] + "</td></tr>";
             });
             $('#result_' + a).append("<table class='table table-condensed'><tr><th>Rank</th><th>Keyword</hd><th>Morpheme</th><th>Point</th></tr>"+ pmi +"</table>");
         }, "json");
