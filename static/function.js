@@ -20,6 +20,12 @@ function doProcess(a) {
                 member += "<tr><td>" + idx + "</td><td>" + item[0] + "</td><td>" + item[1] + "</td><td>" + item[2] + "</td></tr>"
             });
             $('#result_' + a).append("<table class='table table-condensed'><tr><th>Rank</th><th>Keyword</hd><th>Morpheme</th><th>Point</th></tr>"+ member +"</table>");
+
+            pmi = "<div class='title'>* Keyword PMI Rank</div>";
+            $.each(data.pmi, function(idx, item) {
+                pmi += "<tr><td>" + idx + "</td><td>" + item[0] + "</td><td>" + item[1] + "</td><td>" + item[2] + "</td></tr>"
+            });
+            $('#result_' + a).append("<table class='table table-condensed'><tr><th>Rank</th><th>Keyword</hd><th>Morpheme</th><th>Point</th></tr>"+ pmi +"</table>");
         }, "json");
     } else if (a == "image") {
         $('#result_' + a).html('<div class="title">Processing...</div>');

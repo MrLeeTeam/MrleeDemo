@@ -33,9 +33,13 @@ def process():
     if request.method == 'POST':
         if request.form['action'] == "text":
             contents = request.form['contents']
+            result_class = classify.do(contents).split()[0]
+            result_keyword = extractor.extract(contents)
+            result_pmi = extractor.doPMI(result_class, result_keyword)
             returnee = {
-                "class": classify.do(contents).split()[0],
-                "keyword": extractor.extract(contents)
+                "class": result_class,
+                "keyword": result_keyword,
+                "pmi": result_pmi
             }
             return jsonify(returnee)
 

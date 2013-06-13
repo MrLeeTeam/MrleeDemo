@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from math import log
+from lxml import html
 import psycopg2 as DB
 import config
 import operator
 import data
 import inspector
 import HTMLParser
+import json
+import requests
+import urllib
 
 
 def extract(Document):
@@ -100,6 +104,37 @@ def filters(Document):
     Document = unEscape(Document)
     Document = Document.replace(",", "").replace("\"", "").replace("'", "").replace("{", "").replace("}", "")
     return Document
+
+
+def doPMI(category, KeywordSet):
+    tmp = []
+    for Keyword in KeywordSet:
+        tmp.append((Keyword[0], Keyword[1], PMI(category, Keyword[0])))
+
+    tmp = sorted(tmp, key=lambda x: x[2])
+    return tmp[::-1]
+
+
+def getCountResult(keyword):
+    # keyword = urllib.urlencode(keyword)
+    # print "\"" + keyword + "\""
+    # zip = json.loads(requests.get("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s" % keyword).text)
+    # return int(zip["responseData"]["cursor"]["estimatedResultCount"])
+    r = requests.get("http://www.google.com/search?hl=en&q=%s&btnG=Google+Search" % keyword)
+    body = html.fromstring(r.text)
+    stats = body.cssselect("div#resultStats")[0].text
+    elems = stats.split()
+    elem = elems[1]
+    return int(elem.replace(",", ""))
+
+
+def PMI(keyword, keyword2):
+    px = float(getCountResult(keyword))
+    py = float(getCountResult(keyword2))
+    tr = float(px + py)
+    pm = float(getCountResult(" ".join([keyword, keyword2])))
+
+    return log((tr*pm)/(px*py))
 
 
 def unEscape(var):
