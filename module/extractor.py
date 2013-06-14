@@ -2,7 +2,7 @@
 
 from math import log
 from lxml import html
-import psycopg2 as DB
+import psycopg2cffi as DB
 import config
 import operator
 import data
@@ -108,6 +108,7 @@ def filters(Document):
 
 def doPMI(category, KeywordSet):
     tmp = []
+    category = KeywordSet[0][0]
     for Keyword in KeywordSet:
         tmp.append((Keyword[0], Keyword[1], PMI(category, Keyword[0])))
 
@@ -116,10 +117,6 @@ def doPMI(category, KeywordSet):
 
 
 def getCountResult(keyword):
-    # keyword = urllib.urlencode(keyword)
-    # print "\"" + keyword + "\""
-    # zip = json.loads(requests.get("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%s" % keyword).text)
-    # return int(zip["responseData"]["cursor"]["estimatedResultCount"])
     r = requests.get("http://www.google.com/search?hl=en&q=%s&btnG=Google+Search" % keyword)
     body = html.fromstring(r.text)
     stats = body.cssselect("div#resultStats")[0].text
