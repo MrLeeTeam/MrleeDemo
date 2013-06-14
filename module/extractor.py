@@ -2,7 +2,7 @@
 
 from math import log
 from lxml import html
-import psycopg2cffi as DB
+import psycopg2 as DB
 import config
 import operator
 import data
