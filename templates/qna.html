@@ -16,10 +16,10 @@
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="#">팀 남일이삼</a>
+                <a class="brand" href="/">팀 남일이삼</a>
                 <ul class="nav">
                     <li><a href="/text">문단 분석</a></li>
-                    <li><a href="/qna">질의 응답</a></li>
+                    <li class="active"><a href="/qna">질의 응답</a></li>
                     <li><a href="image">영상 처리</a></li>
                 </ul>
                 <ul class="nav pull-right">
@@ -32,10 +32,25 @@
         </div>
     </div>
 
-    <div class="container" id="wrap" style="padding-top:40px;">
+    <div class="container" id="wrap">
         <div class="row-fluid">
-            <div class="span12">
-                Mainpage
+            <div class="span12" class="contents">
+                <section id="s_qna" class="itembox">
+                    <div class="page-header">
+                        <h1>질의 응답</h1>
+                    </div>
+                    <form action="/process" method="post" id="form_qna">
+                        <textarea name="contents" id="qnabox" class="input-block-level" rows="2" style="resize: none;" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+                        <input type="hidden" name="action" value="qna"/>
+                    </form>
+                    <div class="form-actions">
+                        <button onClick="doProcess('qna');" type="submit" class="btn btn-primary">수행<button>
+                        <button class="btn" onClick="$('#qnabox').val('');">초기화</button>
+                    </div>
+                    <div id="result_qna" class="resultbox">
+
+                    </div>
+                </section>
             </div>
         </div>
     </div>

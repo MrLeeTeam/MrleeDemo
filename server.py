@@ -21,6 +21,21 @@ def main():
     return render_template("main.html")
 
 
+@MrLee.route("/text")
+def text():
+    return render_template("text.html")
+
+
+@MrLee.route("/qna")
+def qna():
+    return render_template("qna.html")
+
+
+@MrLee.route("/image")
+def image():
+    return render_template("image.html")
+
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
