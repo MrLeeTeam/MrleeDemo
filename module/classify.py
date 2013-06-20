@@ -6,8 +6,8 @@ import MySQLdb as DB
 
 
 def do(docs):
-    HOST = '58.229.105.83'
-    PORT = 5656
+    HOST = ''
+    PORT = 
 
     diction = make_dic()
     docs = inspector.inspector(docs, "seg")
@@ -46,7 +46,7 @@ def make_dic():
 
     connect = None
     try:
-        connect = DB.connect(host="61.43.139.115", user="jaeyoung", db="jaeyoung", passwd="asdfasdf", charset="utf8")
+        connect = DB.connect(host="" user="", db="", passwd="", charset="utf8")
         cursor = connect.cursor()
         query = """
             select * from tistory_word

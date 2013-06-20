@@ -4,7 +4,7 @@ import xmlrpclib
 
 
 def inspector(arg, p=None):
-    _RPC = xmlrpclib.Server("http://leeee.kr:8222/xmlrpc")
+    _RPC = xmlrpclib.Server("")
     d = None
     if p == "seg":
         d = _RPC.BuzzniTagger.jossegment(arg)
